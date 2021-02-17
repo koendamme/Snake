@@ -63,7 +63,7 @@ int main()
             game.SpawnCandy();
         }
 
-        // Check if the snake hit its tale
+        // Check if the snake hit its tail
         list<pair<int, int>> currentSnakePositions = snake.snakePositions;
         if (currentSnakePositions.size() > 1) {
             pair<int, int> headPosition = currentSnakePositions.front();
