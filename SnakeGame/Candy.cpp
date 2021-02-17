@@ -1,11 +1,16 @@
 #include "Candy.h"
+#include <time.h>
 
-Candy::Candy() {
-	position
+Candy::Candy(pair<int, int> initialPosition) {
+	setPosition(initialPosition);
 }
 
-pair<int, int> RandomPosition() {
-	pair<int, int> newPos;
-	newPos.first = rand() % fieldWidth;
-	newPos.second = rand() % fieldHeight;
+pair<int, int> Candy::getPosition()
+{
+	return position;
+}
+
+void Candy::setPosition(pair<int, int> newPosition)
+{
+	position = newPosition;
 }

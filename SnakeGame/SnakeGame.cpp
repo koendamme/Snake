@@ -6,15 +6,26 @@
 #include <windows.h>
 #include "Snake.h"
 #include "GameField.h"
+#include "Candy.h"
 
+int FIELD_WIDTH = 15;
+int FIELD_HEIGHT = 15;
+
+pair<int, int> generateRandomPosition() {
+    srand(time(0));
+
+    return {
+        rand() % FIELD_WIDTH,
+        rand() % FIELD_HEIGHT
+    };
+}
 
 int main()
 {
-    int FIELD_WIDTH = 15;
-    int FIELD_HEIGHT = 15;
 
     Snake snake(7, 7);
-    GameField game(FIELD_WIDTH, FIELD_HEIGHT, snake);
+    Candy candy(generateRandomPosition());
+    GameField game(FIELD_WIDTH, FIELD_HEIGHT, snake, candy);
 
     game.DisplayField();
 
@@ -58,9 +69,9 @@ int main()
         }
 
         // Check if the snake hit a candy
-        if (snake.snakePositions.front().first == game.GetCandyPosition().first && snake.snakePositions.front().second == game.GetCandyPosition().second) {
+        if (snake.snakePositions.front().first == candy.getPosition().first && snake.snakePositions.front().second == candy.getPosition().second) {
             snake.PickUpCandy();
-            game.SpawnCandy();
+            candy.setPosition(generateRandomPosition());
         }
 
         // Check if the snake hit its tail

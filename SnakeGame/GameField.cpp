@@ -6,11 +6,9 @@
 
 using namespace std;
 
-GameField::GameField(int width, int height, Snake & newSnake) : snake(newSnake) {
+GameField::GameField(int width, int height, Snake & newSnake, Candy & newCandy) : candy(newCandy), snake(newSnake)  {
 	fieldWidth = width;
 	fieldHeight = height;
-
-	SpawnCandy();
 };
 
 void GameField::DisplayField() {
@@ -27,7 +25,7 @@ void GameField::DisplayField() {
 			if (snakeAtCurrentPosition) {
 				cout  << "8 ";
 			}
-			else if (candyPosition.first == j && candyPosition.second == i) {
+			else if (candy.getPosition().first == j && candy.getPosition().second == i) {
 				cout << "P ";
 			}
 			else {
@@ -37,13 +35,3 @@ void GameField::DisplayField() {
 		cout << "\n";
 	}
 }
-void GameField::SpawnCandy()
-{
-	srand(time(0));
-
-	pair<int, int> newCandy;
-
-	candyPosition.first = rand() % fieldWidth;
-	candyPosition.second = rand() % fieldHeight;
-}
-;

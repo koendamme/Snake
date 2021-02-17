@@ -6,13 +6,10 @@ using namespace std;
 class Candy
 {
 private:
-	pair<int, int> RandomPosition();
-
-public:
 	pair<int, int> position;
 
-	Candy();
-
-	void NewRandomPosition();
+public:
+	Candy(pair<int, int> position);
+	pair<int, int> getPosition();
+	void setPosition(pair<int, int> position);
 };
-

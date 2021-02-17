@@ -2,6 +2,7 @@
 #include "Snake.h"
 #include <vector>
 #include <string>
+#include "Candy.h"
 
 class GameField
 {
@@ -9,15 +10,13 @@ private:
 	int fieldWidth;
 	int fieldHeight;
 	Snake& snake;
-	pair<int, int> candyPosition;
+	Candy& candy;
 
 public:
 	std::vector<std::vector<std::string>> field;
 
-	GameField(int width, int height, Snake & newSnake);
+	GameField(int width, int height, Snake & newSnake, Candy & newCandy);
 
 	void DisplayField();
-	pair<int, int> GetCandyPosition() { return candyPosition; }
-	void SpawnCandy();
 };
 
