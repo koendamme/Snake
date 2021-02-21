@@ -6,7 +6,7 @@
 
 using namespace std;
 
-GameField::GameField(int width, int height, Snake & newSnake, Candy & newCandy) : candy(newCandy), snake(newSnake)  {
+GameField::GameField(int width, int height, Snake& newSnake, Candy& newCandy) : candy(newCandy), snake(newSnake)  {
 	fieldWidth = width;
 	fieldHeight = height;
 };
